@@ -1,5 +1,6 @@
 package com.mihir.dictionaryapp.featureDict.data.remote.dto
 
+import com.mihir.dictionaryapp.featureDict.data.local.entity.WordInfoEntity
 import com.mihir.dictionaryapp.featureDict.domain.model.WordInfo
 
 data class WordInfoDTO(
@@ -9,12 +10,13 @@ data class WordInfoDTO(
     val phonetics: List<PhoneticDto>,
     val word: String
 ){
-    fun toWordInfo():WordInfo{
-        return WordInfo(
-            meanings = meanings.map { it.toMeaning() },
+    fun toWordInfo():WordInfoEntity{
+        return WordInfoEntity(
+            meaning = meanings.map { it.toMeaning() },
             origin = origin,
             phonetic = phonetic,
             word = word
         )
     }
+
 }
