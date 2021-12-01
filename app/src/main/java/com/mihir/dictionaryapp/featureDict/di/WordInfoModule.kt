@@ -3,6 +3,7 @@ package com.mihir.dictionaryapp.featureDict.di
 import android.app.Application
 import androidx.room.Room
 import com.google.gson.Gson
+import com.mihir.dictionaryapp.featureDict.data.local.Converters
 import com.mihir.dictionaryapp.featureDict.data.local.WordInfoDao
 import com.mihir.dictionaryapp.featureDict.data.local.WordInfoDatabase
 import com.mihir.dictionaryapp.featureDict.data.remote.DictionaryApi
@@ -41,7 +42,7 @@ object WordInfoModule {
     @Singleton
     fun providesWordInfoDatabse(app:Application):WordInfoDatabase{
         return Room.databaseBuilder(app,WordInfoDatabase::class.java,"word_db")
-            .addTypeConverter(GsonParser(Gson())).build()
+            .addTypeConverter(Converters(GsonParser(Gson()))).build()
     }
 
     @Provides

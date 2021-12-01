@@ -16,9 +16,9 @@ data class WordInfoEntity(
     fun toWordInfo():WordInfo{
         return WordInfo(
             meanings = meaning,
+            word = word,
             origin = origin,
-            phonetic = phonetic,
-            word = word
+            phonetic = phonetic
         )
     }
 }
