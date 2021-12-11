@@ -8,8 +8,8 @@ import com.mihir.dictionaryapp.featureDict.domain.model.WordInfo
 @Entity
 data class WordInfoEntity(
     val word: String,
-    val phonetic:String,
-    val origin:String,
+    val phonetic:String?,
+    val origin:String?,
     val meaning:List<Meaning>,
     @PrimaryKey val id: Int?=null
 ){
